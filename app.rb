@@ -3,7 +3,7 @@ get "/" do
 end
 
 post "/" do
-  info = MultiJson.load request.body.read
+  info = MultiJson.load(params[:payload])
   perform!(info, basic.credentials[1], basic.username)
 end
 
