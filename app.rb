@@ -23,7 +23,7 @@ def perform!(build_info, api_key, widget)
     timestamp: time.to_i,
     value: {
       source: request.url + "/images/#{status}.png",
-      caption: "by #{committer}"
+      caption: "#{build_info["message"]} (#{committer})"
     }
   }
 
@@ -32,5 +32,7 @@ def perform!(build_info, api_key, widget)
     req.body = MultiJson.dump(payload)
   end
 
-  require 'pry'; binding.pry
+  status response.status
+  content_type response.headers["Content-Type"]
+  response.body
 end
