@@ -16,13 +16,12 @@ def perform!(build_info, api_key, widget)
   connection = Faraday.new(url)
 
   status = build_info["status_message"].downcase
-  time = Time.parse(build_info["committed_at"]).strftime("%b %d, %y at %l:%M%P")
+  time = Time.parse(build_info["committed_at"])
   committer = build_info["committer_name"]
 
   image_uri = URI.parse(request.url)
   image_uri.path = "/images/#{status}.png"
 
-  puts build_info.inspect
   payload = {
     timestamp: time.to_i,
     value: {
