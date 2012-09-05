@@ -11,7 +11,7 @@ Ducksboard Travis lets you connect your Travis CI builds to your Ducksboard dash
     ```yaml
     notifications:
       webhooks:
-        - https://travis-status:YOUR_DUCKSBOARD_API_KEY@ducksboard-travis.herokuapp.com/
+        - https://ducksboard-travis.herokuapp.com/YOUR_API_KEY/YOUR_WIDGET_NAME
     ```
 
 4. You're done!

@@ -19,10 +19,14 @@ def perform!(build_info, api_key, widget)
   time = Time.parse(build_info["committed_at"]).strftime("%b %d, %y at %l:%M%P")
   committer = build_info["committer_name"]
 
+  image_uri = URI.parse(request.url)
+  image_uri.path = "/images/#{status}.png"
+
+  puts build_info.inspect
   payload = {
     timestamp: time.to_i,
     value: {
-      source: request.url + "/images/#{status}.png",
+      source:  image_uri,
       caption: "#{build_info["message"]} (#{committer})"
     }
   }
