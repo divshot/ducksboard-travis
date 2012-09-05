@@ -4,6 +4,7 @@ GEM
     coderay (1.0.7)
     faraday (0.8.4)
       multipart-post (~> 1.1)
+    kgio (2.7.4)
     method_source (0.8)
     multi_json (1.3.6)
     multipart-post (1.1.5)
@@ -16,6 +17,7 @@ GEM
       rack
     rack-ssl (1.3.2)
       rack
+    raindrops (0.10.0)
     redcarpet (2.1.1)
     sinatra (1.3.2)
       rack (~> 1.3, >= 1.3.6)
@@ -23,6 +25,10 @@ GEM
       tilt (~> 1.3, >= 1.3.3)
     slop (3.3.2)
     tilt (1.3.3)
+    unicorn (4.3.1)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
 
 PLATFORMS
   ruby
@@ -34,3 +40,4 @@ DEPENDENCIES
   rack-ssl
   redcarpet
   sinatra
+  unicorn
