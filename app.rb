@@ -2,9 +2,9 @@ get "/" do
   erb Redcarpet::Markdown.new(Redcarpet::Render::HTML, fenced_code_blocks: true).render(File.read(File.dirname(__FILE__) + "/README.md"))
 end
 
-post "/" do
+post "/:api_key/:widget" do
   info = MultiJson.load(params[:payload])
-  perform!(info, basic.credentials[1], basic.username)
+  perform!(info, params[:api_key], params[:widget])
 end
 
 def basic
